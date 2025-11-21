@@ -1,0 +1,84 @@
+:root{
+  --bg-1: #e6f7ff;
+  --bg-2: #d9f0ff;
+  --accent: #5ac8ff;
+  --deep: #0ea5c7;
+  --glass: rgba(255,255,255,0.6);
+  --text: #033047;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--text);
+  background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.stage{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;position:relative;overflow:hidden;padding:20px}
+
+.hero{margin-top:28px;text-align:center;animation:fadeInDown .9s ease both}
+.title{font-size:clamp(20px,6vw,34px);margin:0 0 6px 0;color:var(--deep);text-shadow:0 2px 12px rgba(10,60,80,0.06)}
+.subtitle{margin:0;color:rgba(3,48,71,0.75);font-size:clamp(12px,3.6vw,16px)}
+
+.card{width:100%;max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(240,255,255,0.6));backdrop-filter: blur(6px);border-radius:20px;padding:18px;display:flex;gap:16px;align-items:center;margin:18px 0;box-shadow:0 8px 30px rgba(3,48,71,0.08);position:relative}
+.portrait{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,#bfefff,#9fe6ff);box-shadow:0 8px 20px rgba(10,80,120,0.08);transform:translateY(-6px);}
+.content{flex:1;padding:4px}
+.content h2{margin:0 0 8px 0;color:var(--deep)}
+.big-compliment{font-weight:600;background:linear-gradient(90deg, rgba(90,200,255,0.12), rgba(160,230,255,0.06));padding:10px;border-radius:12px}
+
+.buttons{display:flex;gap:12px;margin-top:14px}
+.btn{padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;font-size:16px;transition:transform .18s ease, box-shadow .18s ease}
+.btn:active{transform:translateY(2px)}
+.accept{background:linear-gradient(90deg,var(--accent),#3bb0e6);color:white;box-shadow:0 8px 20px rgba(26,160,210,0.2)}
+.reject{background:transparent;border:2px solid rgba(3,48,71,0.08);color:var(--deep);min-width:120px}
+.reject{touch-action:none}
+
+.note{text-align:center;color:rgba(3,48,71,0.5);font-size:13px;margin-bottom:18px}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(3,48,71,0.18);visibility:hidden;opacity:0;transition:opacity .28s ease, visibility .28s ease}
+.modal[aria-hidden="false"]{visibility:visible;opacity:1}
+.modal-card{background:linear-gradient(180deg,#ffffff,#e8fbff);padding:20px;border-radius:16px;max-width:420px;width:90%;text-align:center;box-shadow:0 30px 70px rgba(3,48,71,0.14);transform:translateY(20px) scale(.98);transition:transform .36s cubic-bezier(.2,.9,.2,1)}
+.modal[aria-hidden="false"] .modal-card{transform:translateY(0) scale(1)}
+.ring{font-size:56px;display:inline-block;background:radial-gradient(circle at 30% 30%, #fff, #c9f0ff);padding:18px;border-radius:999px;animation:ringPulse 1.6s ease-in-out infinite}
+.modal-card h3{margin:12px 0 8px 0;color:var(--deep)}
+.modal-card p{color:rgba(3,48,71,0.8);line-height:1.4}
+.btn.close{margin-top:14px;background:#ffffff;border:2px solid rgba(3,48,71,0.06)}
+
+/* GIF inside modal */
+.modal-gif{display:block;max-width:260px;width:80%;height:auto;margin:12px auto;border-radius:12px;box-shadow:0 10px 30px rgba(3,48,71,0.08);animation:gifPop .6s ease both}
+
+.anniversary{font-weight:700;color:var(--deep);margin-top:10px}
+
+@keyframes gifPop{0%{transform:scale(.9);opacity:0}100%{transform:none;opacity:1}}
+
+/* floating background bubbles */
+.floating-bg{position:absolute;inset:0;pointer-events:none}
+.bubble{position:absolute;border-radius:50%;opacity:0.25;filter:blur(10px);mix-blend-mode:screen}
+.b1{width:220px;height:220px;background:linear-gradient(180deg,#c6f3ff,#a4e7ff);left:-40px;top:-60px;animation:float 12s ease-in-out infinite}
+.b2{width:140px;height:140px;background:linear-gradient(180deg,#dff8ff,#bfefff);right:-30px;top:20%;animation:float 8s ease-in-out infinite .4s}
+.b3{width:90px;height:90px;background:linear-gradient(180deg,#e9fbff,#d0f8ff);left:10%;bottom:-40px;animation:float 10s ease-in-out infinite .8s}
+.b4{width:60px;height:60px;background:linear-gradient(180deg,#d7fbff,#b8f0ff);right:12%;bottom:10%;animation:float 14s ease-in-out infinite 1.2s}
+
+/* animations */
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+@keyframes fadeInDown{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:none}}
+@keyframes ringPulse{0%{transform:scale(.95);filter:drop-shadow(0 0 0 rgba(90,200,255,0))}50%{transform:scale(1.06);filter:drop-shadow(0 8px 28px rgba(90,200,255,0.18))}100%{transform:scale(.95);filter:drop-shadow(0 0 0 rgba(90,200,255,0))}}
+
+/* responsive tweaks */
+@media (max-width:640px){
+  .card{flex-direction:column;align-items:stretch;padding:16px}
+  .portrait{width:84px;height:84px;font-size:36px;margin:0 auto}
+  .buttons{flex-direction:column}
+  .btn{width:100%}
+  .content h2{font-size:18px}
+}
+
+/* playful reject button motion helper */
+.reject.moving{transition:transform 0.35s cubic-bezier(.2,.8,.2,1)}
+
+/* subtle page entrance */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
