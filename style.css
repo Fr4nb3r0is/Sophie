@@ -35,7 +35,7 @@ body{
 
 .closing{font-size:18px;font-weight:600;color:var(--green-accent);margin-top:30px;text-align:center}
 
-.modal-simple{display:flex;justify-content:center;align-items:center;margin:30px 0 40px 0;width:100%}
+.modal-simple{display:flex;justify-content:center;align-items:center;margin:40px auto;width:100%;max-width:900px;padding:0 20px;position:relative;z-index:100}
 .content{flex:1;padding:4px}
 .content h2{margin:0 0 8px 0;color:var(--deep)}
 .big-compliment{font-weight:600;background:linear-gradient(90deg, rgba(90,200,255,0.12), rgba(160,230,255,0.06));padding:10px;border-radius:12px}
@@ -45,10 +45,11 @@ body{
 .btn:active{transform:translateY(2px)}
 .accept{background:linear-gradient(90deg,var(--accent),#3bb0e6);color:white;box-shadow:0 8px 20px rgba(26,160,210,0.2)}
 
-.accept-heart{background:linear-gradient(135deg, var(--green-accent), var(--accent));color:white;padding:18px 32px;font-size:18px;box-shadow:0 12px 30px rgba(74, 222, 128, 0.3);border:2px solid rgba(74, 222, 128, 0.5);max-width:90%;width:fit-content}
+.accept-heart{background:linear-gradient(135deg, var(--green-accent), var(--accent));color:white;padding:20px 40px;font-size:20px;box-shadow:0 12px 30px rgba(74, 222, 128, 0.3);border:2px solid rgba(74, 222, 128, 0.5);display:inline-block;white-space:nowrap;touch-action:manipulation;-webkit-appearance:none;-moz-appearance:none;appearance:none}
 .accept-heart:hover{transform:scale(1.05);box-shadow:0 16px 40px rgba(74, 222, 128, 0.4)}
 .accept-heart:active{transform:scale(0.98)}
-.heart-icon{margin-right:10px;font-size:24px;display:inline-block;animation:heartBeat 1.2s ease-in-out infinite}
+.accept-heart:focus{outline:none}
+.heart-icon{margin-right:10px;font-size:28px;display:inline-block;animation:heartBeat 1.2s ease-in-out infinite}
 
 .btn-close{background:linear-gradient(135deg, var(--green-accent), var(--accent));color:white;padding:12px 24px;font-weight:700;border:0;border-radius:12px;cursor:pointer;margin-top:16px;transition:transform .18s ease}
 .btn-close:hover{transform:scale(1.05)}
@@ -98,8 +99,8 @@ body{
   .big-paragraph{font-size:16px}
   .opening{font-size:20px}
   .closing{font-size:16px}
-  .modal-simple{margin:25px 0 50px 0}
-  .accept-heart{padding:16px 28px;font-size:16px;width:100%;max-width:280px}
+  .modal-simple{margin:40px auto;padding:0 12px;width:100%;min-height:80px;display:flex;justify-content:center;align-items:center}
+  .accept-heart{padding:20px 40px;font-size:18px;width:100%;max-width:none;display:block;border-radius:16px}
 }
 
 /* playful reject button motion helper */
